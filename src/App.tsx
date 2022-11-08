@@ -1,5 +1,5 @@
 import "./App.css";
-import About from "./Views/About";
+import AccessLogs from "./Views/AccessLogs";
 import Home from "./Views/Home";
 
 import React from "react";
@@ -15,7 +15,7 @@ function App() {
       <Routes>
           <Route path="/">
             <Route index element={<Home/>}></Route>
-            <Route path="about" element={<About/>}></Route>
+            <Route path="accessLogs" element={<AccessLogs/>}></Route>
           </Route>
         </Routes>
     </Router>
