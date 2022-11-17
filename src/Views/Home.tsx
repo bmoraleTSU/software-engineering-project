@@ -25,9 +25,9 @@ export default function Main() {
             clientTableArray.push({
               id: (element.id ? element.id : null),
               ClientName: (element.client_name ? element.client_name : ""),
-              AddressState: (element.state ? element.state : ""),
-              InventoryCount: (element.num_of_inventories ? element.num_of_inventories : null),
-              ContactCount: (element.num_of_contacts ? element.num_of_contacts : null)
+              // AddressState: (element.state ? element.state : ""),
+              // InventoryCount: (element.num_of_inventories ? element.num_of_inventories : null),
+              // ContactCount: (element.num_of_contacts ? element.num_of_contacts : null)
             });
           });
 
@@ -66,7 +66,7 @@ export default function Main() {
             <p className="modal-card-title">Client Information</p>
             <button className="delete is-pulled-right" aria-label="close" onClick={closeModal}></button>
           </div>
-          <section className="modal-card-body columns">
+          {/* <section className="modal-card-body columns">
             <div className="column">
               <label className="has-text-weight-medium">Number: </label>
               <p className="mb-3">{(modalClientData.id ? modalClientData.id.toString() : "")}</p>
@@ -97,7 +97,7 @@ export default function Main() {
                 </>
               }
             </div>
-          </section>
+          </section> */}
         </div>
       </div>
     );
@@ -111,37 +111,39 @@ export default function Main() {
   
   return (
     <>
-      <h2 className="is-size-2 pb-6 has-text-weight-medium">Client List</h2>
-      <div className="box columns is-centered is-radiusless">
-        <div className="column is-12 px-0 py-0"> 
-            <table className="table is-striped is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>#</th>
-                    <th>Client Name</th>
-                    <th>State</th>
-                    <th>Number of Inventories</th>
-                    <th>Number of Contacts</th>
-                    <th></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tableData.map((row, i) =>
-                    <tr id={(row.id ? row.id.toString() : "")}>
-                      <td>{(row.id ? row.id.toString() : "")}</td>
-                      <td>{(row.ClientName ? row.ClientName : "")}</td>
-                      <td>{(row.AddressState ? row.AddressState : "")}</td>
-                      <td>{(row.InventoryCount ? row.InventoryCount.toString() : "")}</td>
-                      <td>{(row.ContactCount ? row.ContactCount.toString() : "")}</td>
-                      <td><button className="button is-dark" onClick={() => showModal(i)}>View Client Details</button></td>
-                    </tr> 
-                  )}
-                </tbody>
-            </table>
-            <Modal
-              closeModal={toggleModal}
-              modalState={isModalActive.valueOf()}
-            />
+      <div className="hero-body">
+        <div className="box columns is-centered is-radiusless">
+          {/* <div className="column is-12 px-0 py-0">  */}
+              <table className="table is-fullwidth is-hoverable is-borderless">
+                  <tbody>
+                    {tableData.map((row, i) =>
+                      <tr id={(row.id ? row.id.toString() : "")}>
+                        {/* <td>{(row.id ? row.id.toString() : "")}</td> */}
+                        <td>
+                          <div>
+                            {(row.ClientName ? row.ClientName : "")}
+                          </div>
+                        </td>
+                        {/* <td>{(row.AddressState ? row.AddressState : "")}</td> */}
+                        {/* <td>{(row.InventoryCount ? row.InventoryCount.toString() : "")}</td> */}
+                        {/* <td>{(row.ContactCount ? row.ContactCount.toString() : "")}</td> */}
+                        <td className="has-text-right is-flex is-align-items-center is-pulled-right">
+                          <a href="/ClientContacts">
+                            <button className="button is-light">Client Contacts</button>
+                          </a>
+                          <span className="icon">
+                            <i className="fas fa-duotone fa-arrow-right fa-1.5x"></i>
+                          </span>
+                        </td>
+                      </tr> 
+                    )}
+                  </tbody>
+              </table>
+              <Modal
+                closeModal={toggleModal}
+                modalState={isModalActive.valueOf()}
+              />
+          {/* </div> */}
         </div>
       </div>
     </>

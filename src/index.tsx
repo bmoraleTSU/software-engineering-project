@@ -11,9 +11,7 @@ root.render(
   <React.StrictMode>
     
     <Header/>
-    <div className="section is-large is-fluid has-background-light">
-      <App />
-    </div>
+    <App />
     {/* <Footer/> */}
   </React.StrictMode>
 );

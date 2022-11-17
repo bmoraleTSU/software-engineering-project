@@ -10,3 +10,7 @@
 .navbar-menu, .test-app-header{
   background-color: hsl(139, 23%, 73%);
 }
+
+.table.is-borderless td, .table.is-borderless th {
+  border: 0;
+ }
