@@ -9,7 +9,6 @@ import React, { Component, KeyboardEvent } from "react";
 export default function Main() {
     
   const [tableData, setTableData] = useState<ClientTableRow[]>([INIT_RESULT_DATA]);
-  const [modalClientData, setmodalClientData] = useState<ClientTableRow>(INIT_RESULT_DATA);
   const [isModalActive, setIsModalActive] = useState<Boolean>(false);
 
 
@@ -51,12 +50,6 @@ export default function Main() {
   
   function toggleModal() {
     setIsModalActive(!isModalActive);
-  }
-
-  function showModal(key: number){
-    let clientRow: ClientTableRow = tableData.at(key);
-    setmodalClientData(clientRow);
-    toggleModal();
   }
 
   // Handles burger click
@@ -188,17 +181,17 @@ export default function Main() {
             <section className="section">
                 <nav className="navbar has-shadow is-fixed-top test-app-header" role="navigation" aria-label="main navigation">
                     <div className="navbar-brand">
-                        {/* <a href="/" className="navbar-item">
-                        <img
-                            src={require("../anime.png")}
-                            alt="Logo"
-                            width="auto"
-                            height="auto"
-                        />
-                        </a> */}
-                        <div className="navbar-item">
-                            <h1 className="title is-3 is-family-secondary has-text-weight-bold is-italic">Client List</h1>
+                        <div className="navbar-item is-size-1">
+                          <img
+                              src={require("../pageTitles/clients_list_title.png")}
+                              alt="Logo"
+                              width="auto"
+                              height="auto"
+                          />
                         </div>
+                        {/* <div className="navbar-item">
+                            <h1 className="title is-3 is-family-secondary has-text-weight-bold is-italic">Client List</h1>
+                        </div> */}
                         <button className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={onClickHandler}>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>
