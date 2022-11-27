@@ -7,7 +7,6 @@
   background-color: grey;
 }
 
-.navbar-menu{
-  background-color: hsl(0, 0%, 21%);
+.navbar-menu, .test-app-header{
+  background-color: hsl(139, 23%, 73%);
 }
-
