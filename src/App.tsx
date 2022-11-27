@@ -3,7 +3,6 @@ import AccessLogs from "./Views/AccessLogs";
 import Home from "./Views/Home";
 import ClientContacts from "./Views/ClientContacts";
 import ClientInventories from "./Views/ClientInventories";
-
 import React from "react";
 import {
   BrowserRouter as Router,

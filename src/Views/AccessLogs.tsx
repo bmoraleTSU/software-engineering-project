@@ -44,9 +44,6 @@ function AccessLogs() {
                             height="auto"
                         />
                         </div>
-                        {/* <div className="navbar-item">
-                            <h1 className="title is-3 is-family-secondary has-text-weight-bold is-italic">Client List</h1>
-                        </div> */}
                         <button className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" onClick={onClickHandler}>
                             <span aria-hidden="true"></span>
                             <span aria-hidden="true"></span>

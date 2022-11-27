@@ -9,9 +9,7 @@ import React, { Component, KeyboardEvent } from "react";
 export default function Main() {
     
   const [tableData, setTableData] = useState<ClientTableRow[]>([INIT_RESULT_DATA]);
-  const [isModalActive, setIsModalActive] = useState<Boolean>(false);
-
-
+  
   //A function that supports the creation of the client table.
   function setClientTable(){
     try{
@@ -31,9 +29,6 @@ export default function Main() {
               modifiedBy: (element.modified_by ? element.modified_by: ""),
               modifiedDate: (element.modified_by ? element.modified_by: ""),
               isDeleted:  (element.is_deleted ? element.is_deleted: null)
-              // AddressState: (element.state ? element.state : ""),
-              // InventoryCount: (element.num_of_inventories ? element.num_of_inventories : null),
-              // ContactCount: (element.num_of_contacts ? element.num_of_contacts : null)
             });
           });
 
@@ -47,10 +42,6 @@ export default function Main() {
       );
     } catch{}
   } 
-  
-  function toggleModal() {
-    setIsModalActive(!isModalActive);
-  }
 
   // Handles burger click
   function onClickHandler(){
@@ -89,58 +80,6 @@ export default function Main() {
         }
     }
   }
-
-
-  const Modal = ({ closeModal, modalState }: { closeModal: any, modalState: boolean }) => {
-    if(!modalState) {
-      return null;
-    }
-    
-    return(
-      <div className="modal is-active">
-        <div className="modal-background"></div>
-        <div className="modal-card">
-          <div className="modal-card-head is-radiusless">
-            <p className="modal-card-title">Client Information</p>
-            <button className="delete is-pulled-right" aria-label="close" onClick={closeModal}></button>
-          </div>
-          {/* <section className="modal-card-body columns">
-            <div className="column">
-              <label className="has-text-weight-medium">Number: </label>
-              <p className="mb-3">{(modalClientData.id ? modalClientData.id.toString() : "")}</p>
-              { modalClientData.ClientName &&
-                <>
-                  <label className="has-text-weight-medium">Client Name: </label>
-                  <p>{(modalClientData.ClientName ? modalClientData.ClientName : "")}</p>
-                </>
-              }
-            </div>
-            <div className="column">
-              { modalClientData.AddressState &&
-                <>
-                  <label className="has-text-weight-medium">State: </label>
-                  <p className="mb-3">{(modalClientData.AddressState ? modalClientData.AddressState : "")}</p>
-                </>
-              }
-              { modalClientData.InventoryCount &&
-                <>
-                  <label className="has-text-weight-medium">Number of Inventories: </label>
-                  <p className="mb-3">{(modalClientData.InventoryCount ? modalClientData.InventoryCount.toString() : "")}</p>
-                </>
-              }
-              { modalClientData.ContactCount &&
-                <>
-                  <label className="has-text-weight-medium">Number of Contacts: </label>
-                  <p>{(modalClientData.ContactCount ? modalClientData.ContactCount.toString() : "")}</p>
-                </>
-              }
-            </div>
-          </section> */}
-        </div>
-      </div>
-    );
-  }
-
 
   //The useEffect is a function that runs whenever the set data changes or when loading the page.
   useEffect(() => {
@@ -259,10 +198,6 @@ export default function Main() {
                     )}
                   </tbody>
               </table>
-              <Modal
-                closeModal={toggleModal}
-                modalState={isModalActive.valueOf()}
-              />
           </div>
         </div>
       </div>
