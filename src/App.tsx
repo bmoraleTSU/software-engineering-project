@@ -1,6 +1,7 @@
 import "./App.css";
 import AccessLogs from "./Views/AccessLogs";
 import Home from "./Views/Home";
+import AddInventory from "./Views/AddInventory";
 
 import React from "react";
 import {
@@ -16,6 +17,7 @@ function App() {
           <Route path="/">
             <Route index element={<Home/>}></Route>
             <Route path="accessLogs" element={<AccessLogs/>}></Route>
+            <Route path="addInventory" element={<AddInventory/>}></Route>
           </Route>
         </Routes>
     </Router>
